@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, NavLink, Switch } from "react-router-dom";
+// import {useState, useEffect} from "react"
+// import { getMovie,favoriteMovie } from "./services/apiReqst"
+import HomeView from "./views/HomeView"
+import MoviesPage from "./views/MoviesPage"
+import MovieDetailsPage from "./views/MovieDetailsPage"
+import PageNotFound from "./views/PageNotFound"
 
 function App() {
+
+
+
+
+
+    // useEffect(() => {
+    //     if (pressSubmit) {
+    //     console.log("useEffect")
+    //     window.location.pathname = "/movies"
+    //     }
+    //     },[filmsArray])
+
+
+
+
+
+
+
   return (
+<>
+    <ul>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/movies">Movie</NavLink></li>
+    </ul>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+
+
+
     </div>
+
+      <Switch>
+          <Route exact path="/" component={HomeView}/>
+          <Route exact path="/movies" render={(props) => <MoviesPage {...props}  />}/>
+          <Route path="/movies/:moviesId" component={MovieDetailsPage}/>
+          <Route component={PageNotFound}/>
+      </Switch>
+</>
   );
 }
 
