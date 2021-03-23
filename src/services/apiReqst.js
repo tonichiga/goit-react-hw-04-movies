@@ -34,6 +34,10 @@ export const getOneMovie = (movieId) => {
 export const getCastMovie = (id) => {
    return axios.get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
 }
+
+export const getReviewMovie = (id) => {
+   return axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+}
 // // Получить перечень жанров фильмов
 // export const getGenres = () => {
 //   const url = `/genre/movie/list?api_key=${API_KEY}&language=en-US`;

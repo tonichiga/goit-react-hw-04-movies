@@ -1,0 +1,17 @@
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid deepskyblue;
+}
+
+.headerElement {
+  font-size: 22px;
+}
+
+.headerElement > a {
+  text-decoration: none;
+  background-color: aquamarine;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px ;
+}

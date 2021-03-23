@@ -2,6 +2,7 @@ import {getMovie} from "../services/apiReqst";
 import {NavLink, Route} from "react-router-dom";
 import {useState} from "react"
 import MovieDetailsPage from "./MovieDetailsPage";
+import s from "./MoviesPage.module.scss"
 
 const MoviesPage = (props) => {
     const [filmsArray, setFilmsArray] = useState([])
@@ -23,9 +24,10 @@ const MoviesPage = (props) => {
             <h1>Страница Поиска фильмов по ключевому слову</h1>
             <input onChange={getNameFilm} type="text" placeholder="enter film"/>
             <button onClick={sendSubmit}>Search</button>
-            <ul>
-                {filmsArray.map(({title, id}) => <li key={id}><NavLink to={`${props.match.url}/${id}/`}>{title}</NavLink></li>)}
+            <ul className={s.listMovie}>
+                {filmsArray.map(({title, id}) => <li className={s.listElement}  key={id}><NavLink to={`${props.match.url}/${id}`}>{title}</NavLink></li>)}
             </ul>
+
             <Route
                 path={`${props.match.path}/:moviesId`}
                 render={(props) => {

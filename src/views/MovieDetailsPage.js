@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {getOneMovie, getCastMovie} from "../services/apiReqst"
+import {getOneMovie} from "../services/apiReqst"
 import {NavLink, Route, Switch} from "react-router-dom";
 import Cast from "./movie-details/Cast";
 import Review from "./movie-details/Review"
@@ -8,8 +8,6 @@ const MovieDetailsPage = (props) => {
 
     const [movieDetails, setMovieDetails] = useState([])
     const {moviesId} = props.match.params
-    const [castMovie, setCast] = useState([])
-    const [btnVisible, setBtnVisible] = useState(false)
 
     const imgPath = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movieDetails.poster_path}`
     // profile_path
@@ -18,15 +16,6 @@ const MovieDetailsPage = (props) => {
         getOneMovie(moviesId).then(res => setMovieDetails(res.data))
     }, [moviesId])
 
-    // const getCast = () => {
-    //     getCastMovie(moviesId).then(res => {
-    //         setCast(res.data);
-    //         setBtnVisible(true)
-    //     })
-    // }
-
-
-    console.log(props)
     return (
         <>
             <h2>Страница одного фильма</h2>
@@ -42,8 +31,12 @@ const MovieDetailsPage = (props) => {
             </ul>
 
             <Switch>
-                <Route path={`${props.match.url}/cast`} component={Cast}/>
-                <Route path={`${props.match.url}/review`} component={Review}/>
+                <Route path={`${props.match.url}/cast`} render={() => {
+                    return <Cast movieId={moviesId}/>
+                }}/>
+                <Route path={`${props.match.url}/review`} render={() => {
+                    return <Review movieId={moviesId}/>
+                }}/>
             </Switch>
         </>
     )

@@ -1,0 +1,15 @@
+contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+}
+
+li {
+  margin: -10px;
+  margin-bottom: 20px;
+  width: calc((100% - 90px) / 4);
+}
+
