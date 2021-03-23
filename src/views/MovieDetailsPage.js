@@ -3,6 +3,7 @@ import {getOneMovie} from "../services/apiReqst"
 import {NavLink, Route, Switch} from "react-router-dom";
 import Cast from "./movie-details/Cast";
 import Review from "./movie-details/Review"
+import s from "./MoviewDetailsPage.module.scss"
 
 const MovieDetailsPage = (props) => {
 
@@ -25,9 +26,9 @@ const MovieDetailsPage = (props) => {
 
             {/*{ !btnVisible && <button onClick={getCast}>Cast</button>}*/}
 
-            <ul>
-                <li><NavLink to={`${props.match.url}/cast`}>Cast</NavLink></li>
-                <li><NavLink to={`${props.match.url}/review`}>Review</NavLink></li>
+            <ul className={s.castList}>
+                <li className={s.castListElement}><NavLink to={`${props.match.url}/cast`}>Cast</NavLink></li>
+                <li className={s.castListElement}><NavLink to={`${props.match.url}/review`}>Review</NavLink></li>
             </ul>
 
             <Switch>

@@ -1,0 +1,17 @@
+.castList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.castListElement {
+  margin: 0;
+  margin-right: 20px;
+  width: auto;
+}
+
+li.castListElement > a {
+  padding: 5px 20px 5px 20px;
+  background-color: deepskyblue;
+  border-radius: 5px;
+}
